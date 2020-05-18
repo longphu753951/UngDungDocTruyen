@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppDocTruyenAndroid</string>
+    <string name="id">Tên tài khoản</string>
+    <string name="pw">Mật khẩu</string>
+    <string name="Login">Đăng nhập</string>
+
 </resources>
