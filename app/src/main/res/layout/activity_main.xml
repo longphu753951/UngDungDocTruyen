@@ -4,40 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/edtID"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="168dp"
-        android:autofillHints=""
+        android:layout_width="236dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="156dp"
         android:background="@drawable/et_bg"
         android:hint="@string/id"
         android:inputType="textEmailAddress"
         android:padding="16dp"
-
         android:textColorHint="@color/login_form_details"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="245dp"
+        android:layout_width="237dp"
+        android:layout_height="53dp"
+
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="236dp"
         android:background="@drawable/et_bg"
         android:drawableEnd="@drawable/ic_eye"
         android:hint="@string/pw"
-        android:inputType="textPassword"
 
+        android:inputType="textPassword"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnDangNhap"
