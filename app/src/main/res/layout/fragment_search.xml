@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#000000"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.SearchFragment">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/nhentailogo" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_width="381dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/et_bg"
+            android:hint="Tìm kiếm ..."
+            android:padding="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/login_form_details" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/btn_ctg"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="12dp"
+            android:background="#FF6961"
+            android:drawableLeft="@drawable/ic_baseline_category_24"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="50dp"
+            android:text="FILTER"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/colorPrimaryDark"
+            android:drawableLeft="@drawable/ic_baseline_search_24_white"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="45dp"
+            android:text="SEARCH"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_filter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.recyclerview.widget.RecyclerView>
+</TableLayout>
