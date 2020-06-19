@@ -3,6 +3,7 @@ package com.example.appdoctruyenandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.service.autofill.RegexValidator;
 import android.view.View;
@@ -122,8 +123,11 @@ public class Register extends AppCompatActivity {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
-                        Toast.makeText(Register.this,s,Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
+                        Toast.makeText(Register.this,s,Toast.LENGTH_SHORT).show();
+                        Intent pageIntent = new Intent(getBaseContext(), MainActivity.class);
+                        pageIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        getBaseContext().startActivity(pageIntent);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
