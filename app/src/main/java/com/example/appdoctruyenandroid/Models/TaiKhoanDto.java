@@ -1,55 +1,72 @@
 package com.example.appdoctruyenandroid.Models;
 
 public class TaiKhoanDto {
-    private String TenTaiKhoan ;
-    private String MatKhau ;
-    private String TenHienThi ;
-    private String Email;
+
+
+    private int id;
+    private String tenTaiKhoan ;
+    private String matKhau ;
+    private String tenHienThi ;
+    private String email;
 
     public TaiKhoanDto() {
     }
 
-    public TaiKhoanDto(String tenTaiKhoan, String matKhau, String tenHienThi, String email) {
-        TenTaiKhoan = tenTaiKhoan;
-        MatKhau = matKhau;
-        TenHienThi = tenHienThi;
-        Email = email;
+    public TaiKhoanDto(int id,String tenTaiKhoan, String matKhau, String tenHienThi, String email) {
+        this.id = id;
+        this.tenTaiKhoan = tenTaiKhoan;
+        this.matKhau = matKhau;
+        this.tenHienThi = tenHienThi;
+        this.email = email;
     }
+    public TaiKhoanDto(String tenTaiKhoan, String matKhau, String tenHienThi, String email) {
 
+        this.tenTaiKhoan = tenTaiKhoan;
+        this.matKhau = matKhau;
+        this.tenHienThi = tenHienThi;
+        this.email = email;
+    }
     public TaiKhoanDto(String tenTaiKhoan, String matKhau) {
-        TenTaiKhoan = tenTaiKhoan;
-        MatKhau = matKhau;
+        this.tenTaiKhoan = tenTaiKhoan;
+        this.matKhau = matKhau;
     }
 
     public String getTenTaiKhoan() {
-        return TenTaiKhoan;
+        return tenTaiKhoan;
     }
 
     public void setTenTaiKhoan(String tenTaiKhoan) {
-        TenTaiKhoan = tenTaiKhoan;
+        this.tenTaiKhoan = tenTaiKhoan;
     }
 
     public String getMatKhau() {
-        return MatKhau;
+        return matKhau;
     }
 
     public void setMatKhau(String matKhau) {
-        MatKhau = matKhau;
+        this.matKhau = matKhau;
     }
 
     public String getTenHienThi() {
-        return TenHienThi;
+        return tenHienThi;
     }
 
     public void setTenHienThi(String tenHienThi) {
-        TenHienThi = tenHienThi;
+        this.tenHienThi = tenHienThi;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    #BACKGROUNDCOLOR
     <color name="colorPrimary">#3F51B5</color>
+    <color name="colorTempreg">#7B1FA2</color>
+
+
+    #NOTIFICATIONBAR
     <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorTempregDark">#6A1B9A</color>
+
+
+    #ACCENT
     <color name="colorAccent">#FF4081</color>
+    <color name="colorAccentTempreg">#d50000</color>
+
+
     <color name="dark_blue">#3023AE</color>
     <color name="purple">#c86dd7</color>
 
     <color name="login_form_details">#ccffffff</color>
     <color name="login_form_details_light">#1affffff</color>
     <color name="login_form_details_medium">#66ffffff</color>
+
 </resources>
