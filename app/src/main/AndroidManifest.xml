@@ -11,27 +11,32 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity android:name=".MainActivity2"
-            android:theme="@style/AppTheme">
+        <activity android:name=".DoiMatKhauActivity"
+            android:theme="@style/AppThemeReg">
+
         </activity>
+        <activity
+            android:name=".DoiThongTinActivity"
+            android:theme="@style/AppThemeReg" />
+        <activity
+            android:name=".MainActivity2"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ChapterScrollingActivity"
             android:label="@string/title_activity_chapter_scrolling"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".PageActivity"
             android:theme="@style/AppThemeReg" />
         <activity
             android:name=".SplashScreenActivity"
-            android:theme="@style/SplashTheme">
-
-        </activity>
+            android:theme="@style/SplashTheme" />
         <activity
             android:name=".Register"
             android:theme="@style/AppThemeReg" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

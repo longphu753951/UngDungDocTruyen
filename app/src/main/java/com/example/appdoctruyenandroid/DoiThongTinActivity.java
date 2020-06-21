@@ -3,15 +3,14 @@ package com.example.appdoctruyenandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.service.autofill.RegexValidator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.appdoctruyenandroid.Common.Common;
-import com.example.appdoctruyenandroid.Models.TaiKhoanDto;
 import com.example.appdoctruyenandroid.Remote.IMyAPI;
 import com.example.appdoctruyenandroid.Remote.RetrofitClient;
 
@@ -21,43 +20,48 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class Register extends AppCompatActivity {
+public class DoiThongTinActivity extends AppCompatActivity {
     EditText txtTK,txtMK,txtTenHienThi,txtEmail,txtMKC;
 
-    Button btnDangKy;
+    Button btnDoiTT,btnHuy;
     IMyAPI iMyAPI;
     AlertDialog dialog;
-    String taiKhoan, matKhau, email, tenHienThi,matKhauConf;
+    String taiKhoan,  email, tenHienThi;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        btnDangKy= (Button)findViewById(R.id.buttonDangKy);
-        txtTK =(EditText)findViewById(R.id.txt_tenTK);
-        txtMK =(EditText)findViewById(R.id.txtMK);
-        txtMKC = (EditText)findViewById(R.id.txtMKC);
+        setContentView(R.layout.activity_doi_thong_tin);
+        btnDoiTT= (Button)findViewById(R.id.buttonDoiTT);
+        txtTK =(EditText)findViewById(R.id.txt_tenTKDoi);
         iMyAPI = RetrofitClient.getInstance().create(IMyAPI.class);
-        txtEmail =(EditText)findViewById(R.id.txtEmail);
-        txtTenHienThi =(EditText)findViewById(R.id.txtTenHienThi);
-
-        btnDangKy.setOnClickListener(new View.OnClickListener() {
+        txtEmail =(EditText)findViewById(R.id.txtEmailDoi);
+        txtTenHienThi =(EditText)findViewById(R.id.txtTenHienThiDoi);
+        txtTK.setText(Common.signin_TaiKhoan.getTenTaiKhoan());
+        txtEmail.setText(Common.signin_TaiKhoan.getEmail());
+        txtTenHienThi.setText(Common.signin_TaiKhoan.getTenHienThi());
+        btnHuy =(Button)findViewById(R.id.buttonHuy);
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        btnDoiTT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 taiKhoan = txtTK.getText().toString().trim();
-                matKhau = txtMK.getText().toString().trim();
+
                 tenHienThi = txtTenHienThi.getText().toString();
                 email = txtEmail.getText().toString().trim();
-                matKhauConf = txtMKC.getText().toString().trim();
-                if (!validateEmail() | !validPassword() | !validPasswordConfirm() | !validateTenHienThi() || !validateTenTK()){
+                if (!validateEmail()  | !validateTenHienThi() || !validateTenTK()){
                     return;
                 }
                 else{
-                    taoTK();
+                    doiTT();
                 }
             }
         });
-
     }
     private boolean validateTenHienThi(){
         if(tenHienThi.length()==0){
@@ -66,6 +70,20 @@ public class Register extends AppCompatActivity {
         }
         else{
             txtTenHienThi.setError(null);
+            return true;
+        }
+    }
+    private boolean validateTenTK(){
+        if(taiKhoan.length()==0){
+            txtTK.setError("Không được bỏ trống");
+            return false;
+        }
+        else if(taiKhoan.contains(" ")){
+            txtTK.setError("Không được co khoang cach");
+            return false;
+        }
+        else{
+            txtTK.setError(null);
             return true;
         }
     }
@@ -83,63 +101,27 @@ public class Register extends AppCompatActivity {
             return true;
         }
     }
-    private boolean validPassword(){
-        if(matKhau.length()==0){
-            txtMK.setError("Không được bỏ trống");
-            return false;
-        }
-        else if(!Common.MATKHAU.matcher(matKhau).matches()){
-            txtMK.setError("Mật khẩu quá yếu");
-            return false;
-        }
-        else{
-            txtMK.setError(null);
-            return true;
-        }
-    }
-    private boolean validateTenTK(){
-        if(tenHienThi.length()==0){
-            txtTK.setError("Không được bỏ trống");
-            return false;
-        }
-        else{
-            txtTK.setError(null);
-            return true;
-        }
-    }
-    private boolean validPasswordConfirm(){
-        if(matKhauConf.length()==0){
-            txtMKC.setError("Không được bỏ trống");
-            return false;
-        }
-        else if(!matKhau.contains(matKhauConf) ){
-            txtMKC.setError("Mật khẩu xác nhận phải trùng với mật khẩu vừa nhập");
-            return false;
-        }
-        else{
-            txtMKC.setError(null);
-            return true;
-        }
-    }
-    private void taoTK(){
+    private void doiTT(){
         dialog = new SpotsDialog.Builder()
-                .setContext(Register.this)
+                .setContext(DoiThongTinActivity.this)
                 .build();
-        TaiKhoanDto user = new TaiKhoanDto(taiKhoan,matKhau,tenHienThi,email);
-        compositeDisposable.add(iMyAPI.register(user)
+        Common.signin_TaiKhoan.setEmail(email);
+        Common.signin_TaiKhoan.setTenHienThi(tenHienThi);
+        Common.signin_TaiKhoan.setTenTaiKhoan(taiKhoan);
+        compositeDisposable.add(iMyAPI.doithongtin(Common.signin_TaiKhoan)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
-                        Toast.makeText(Register.this,s,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DoiThongTinActivity.this,s,Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         dialog.dismiss();
-                        Toast.makeText(Register.this,"Kết nối mạng không thành công, vui lòng kiểm tra lại",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DoiThongTinActivity.this,"Kết nối mạng không thành công, vui lòng kiểm tra lại",Toast.LENGTH_SHORT).show();
                     }
                 }));
     }
@@ -149,4 +131,5 @@ public class Register extends AppCompatActivity {
         super.onStop();
 
     }
+
 }

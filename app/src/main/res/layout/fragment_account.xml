@@ -11,16 +11,45 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp">
         <Button
-            android:drawableRight="@drawable/ic_baseline_subdirectory_arrow_right_24"
+            android:id="@+id/btnDoiTT"
             android:layout_width="370dp"
-            android:paddingRight="130dp"
-            android:gravity="right|center_vertical"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:textColor="#FFFFFF"
-            android:background="@color/colorPrimary"
-            android:text="Đăng xuất"
+            android:background="#800080"
+            android:text="Đổi thông tin "
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/btnDoiMK"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textColor="#FFFFFF"
+            android:background="#c23b22"
+            android:text="Đổi mật khẩu "
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/buttonDangXuat"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@color/colorPrimary"
+            android:drawableRight="@drawable/ic_baseline_subdirectory_arrow_right_24"
+            android:gravity="right|center_vertical"
+            android:paddingRight="130dp"
+            android:text="Đăng xuất"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 

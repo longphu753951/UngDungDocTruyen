@@ -1,5 +1,6 @@
 package com.example.appdoctruyenandroid.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,7 +8,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.appdoctruyenandroid.DoiMatKhauActivity;
+import com.example.appdoctruyenandroid.DoiThongTinActivity;
+import com.example.appdoctruyenandroid.MainActivity;
 import com.example.appdoctruyenandroid.R;
 
 /**
@@ -56,11 +61,39 @@ public class AccountFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    Button btnDangXuat,btnSuaTT,btnDoiMK;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
+        btnDangXuat = (Button) view.findViewById(R.id.buttonDangXuat);
+        btnDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent trangChu = new Intent(getActivity(), MainActivity.class);
+                trangChu.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(trangChu);
+            }
+        });
+        btnSuaTT = (Button) view.findViewById(R.id.btnDoiTT);
+        btnSuaTT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent trangChu = new Intent(getActivity(), DoiThongTinActivity.class);
+                trangChu.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(trangChu);
+            }
+        });
+        btnDoiMK = (Button) view.findViewById(R.id.btnDoiMK);
+        btnDoiMK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent trangChu = new Intent(getActivity(), DoiMatKhauActivity.class);
+                trangChu.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(trangChu);
+            }
+        });
+        return view;
     }
 }

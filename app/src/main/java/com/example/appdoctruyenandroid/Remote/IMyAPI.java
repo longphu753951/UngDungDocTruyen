@@ -48,4 +48,8 @@ public interface IMyAPI {
      Observable<List<Category>> getCategory();
      @POST("api/TheLoaiTruyen/Filter")
      Observable<List<Comic>> getFilterComic(@Body List<Integer> theLoaiIds);
+     @POST("api/login/doithongtin")
+     Observable<String> doithongtin (@Body TaiKhoanDto taiKhoanDto);
+     @POST("api/login/doimatkhau")
+     Observable<String> doimatkhau (@Body TaiKhoanDto taiKhoanDto);
 }
