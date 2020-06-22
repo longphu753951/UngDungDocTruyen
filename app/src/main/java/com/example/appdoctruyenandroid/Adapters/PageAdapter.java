@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appdoctruyenandroid.Common.Common;
 import com.example.appdoctruyenandroid.Models.Comic;
 import com.example.appdoctruyenandroid.Models.Page;
 import com.example.appdoctruyenandroid.R;

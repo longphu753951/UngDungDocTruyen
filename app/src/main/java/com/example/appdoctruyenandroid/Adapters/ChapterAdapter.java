@@ -41,14 +41,14 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.MyViewHo
         holder.txt_chapter_number.setText(new StringBuilder(chapterList.get(position).getTenChuong()));
 
         Common.selected_chapter = chapterList.get(position);
-        Common.chapter_index= position;
+
         holder.setiRecyclerOnClick(new IRecyclerOnClick() {
             @Override
             public void onClick(View view, int position) {
                 Intent pageIntent = new Intent(context, PageActivity.class);
                 pageIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(pageIntent);
-
+                Common.chapter_index= position;
                 Common.selected_chapter = chapterList.get(position);
             }
         });

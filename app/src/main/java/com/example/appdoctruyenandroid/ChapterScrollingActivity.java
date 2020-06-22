@@ -161,6 +161,7 @@ public class ChapterScrollingActivity extends AppCompatActivity {
                 .subscribe(new Consumer<List<Chapter>>() {
                     @Override
                     public void accept(List<Chapter> chapters) throws Exception {
+                        Common.chapterList = chapters;
                         recycler_chapter1.setAdapter(new ChapterAdapter(getBaseContext(),chapters));
                         dialog.dismiss();
                     }

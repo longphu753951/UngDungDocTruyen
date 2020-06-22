@@ -1,5 +1,7 @@
 package com.example.appdoctruyenandroid.Common;
 
+import android.content.res.Resources;
+
 import com.example.appdoctruyenandroid.Models.Category;
 import com.example.appdoctruyenandroid.Models.Chapter;
 import com.example.appdoctruyenandroid.Models.Comic;
@@ -40,6 +42,13 @@ public class Common {
     public static Chapter selected_chapter;
     public static TaiKhoanDto signin_TaiKhoan;
     public static int chapter_index = -1;
-
+    public static List<Chapter> chapterList = new ArrayList<>();
     public static List<Category> categories = new ArrayList<>();
+    public static int getScreenWidth() {
+        return Resources.getSystem().getDisplayMetrics().widthPixels;
+    }
+
+    public static int getScreenHeight() {
+        return Resources.getSystem().getDisplayMetrics().heightPixels;
+    }
 }
