@@ -11,7 +11,7 @@ public class RetrofitClient {
     public static Retrofit getInstance(){
         if(instance==null)
             instance =  new retrofit2.Retrofit.Builder()
-                    .baseUrl("https://appcomicapi20200621175004.azurewebsites.net/")
+                    .baseUrl("https://appcomicapi20200624121436.azurewebsites.net/")
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
